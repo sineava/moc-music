@@ -1,0 +1,14 @@
+.carousel-wrapper {
+  padding: 20px;
+  .carousel-comp {
+    border-radius: 10px;
+    height: 160px;
+    overflow: hidden;
+    box-shadow: 0 5px 5px rgba(0,0,0,.2);
+    .carousel {
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
