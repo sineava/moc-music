@@ -1,0 +1,42 @@
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: left;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  .navbar-item {
+    display: inline-block;
+    margin-left: 20px;
+    a {
+      color: #ACACAD;
+      &.selected {
+        color: #222224;
+        font-weight: bold;
+        position: relative;
+      }
+      &.selected::after {
+        content: '';
+        width: 20px;
+        height: 4px;
+        border-radius: 2px;
+        position:absolute;
+        top: 20px;
+        left: 0;
+        background-color: #3CBE7F;
+        animation: fade 1s linear forwards;
+      }
+    }
+  }
+}
+
+@keyframes fade {
+  0% { 
+    opacity: 0;
+    // width: 0px; 
+  }
+  100% { 
+    opacity: 1;
+    // width: 20px; 
+  }
+}
