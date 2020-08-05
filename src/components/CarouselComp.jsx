@@ -4,15 +4,13 @@ import './CarouselComp.scss'
 
 const CarouselComp = ({banners}) => {
   const contentStyle = {
-    height: '160px',
-    color: '#fff',
-    lineHeight: '160px',
-    textAlign: 'center'
+    className: 'carousel-item',
+    height: '160px'
   }
   return (
     <div className="carousel-wrapper">
       <div className="carousel-comp">
-        <Carousel className="carousel">
+        <Carousel className="carousel" autoplay>
           { banners.map(banner => {
             return (
               <div key={banner.id}>
