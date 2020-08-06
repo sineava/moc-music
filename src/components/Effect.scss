@@ -1,0 +1,38 @@
+.debut {
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* 背景部分 */
+  .music-cover-background {
+    position: absolute;
+  }
+  /* 前景部分 */
+  .music-cover {
+    width: 23.75rem;
+    height: 23.75rem;
+    box-sizing: border-box;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    .music-cover-image {
+      width: 50vw;
+      height: 50vw;
+      border: none;
+      border-radius: 50%;
+      animation: rotate infinite linear 25s;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
