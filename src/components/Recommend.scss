@@ -1,0 +1,48 @@
+.recommend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 70px;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+  .recommend-item {
+    width: 45vw;
+    margin-bottom: 10px;
+    >.wrapper {
+      position: relative;
+      .link {
+        display: block;
+        position: relative;
+        img {
+          width: 100%;
+          display: block;
+          border-radius: 5px;
+        }
+      }
+      .btn-wrapper {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 44px;
+        height: 25px;
+        background-color: #43BA85;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2px;
+        padding: 3px 0;
+        img {
+          width: 18px;
+        }
+      }
+    }
+    .content {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+  }
+}
