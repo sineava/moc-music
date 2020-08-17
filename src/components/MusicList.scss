@@ -1,0 +1,30 @@
+.musiclist-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  .playlist-item {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0;
+    .playlist-avatar {
+      width: 40vw;
+      height: 40vw;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      a {
+        display: block;
+        width:100%;
+        height:100%;
+      }
+    }
+    .desc {
+      font-size: 10px;
+    }
+  }
+}
