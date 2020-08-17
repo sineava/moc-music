@@ -11,7 +11,7 @@ const CarouselComp = ({banners}) => {
     <div className="carousel-wrapper">
       <div className="carousel-comp">
         <Carousel className="carousel" autoplay>
-          { banners.map(banner => {
+          { banners && banners.map(banner => {
             return (
               <div key={banner.id}>
                 <h3 style={contentStyle}>
