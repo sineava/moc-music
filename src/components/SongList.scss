@@ -1,14 +1,45 @@
 .songlist {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 20px 80px 20px;
   width: 100%;
-  .album {
-    width: 50%;
-    padding: 5px;
-    .cover {
-      width: 100%;
-      border-radius: 5px;
+  height: calc(100vh - 64px);
+  position: relative;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  .content {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    // justify-content: space-around;
+    justify-content:space-between;
+    margin: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 15px;
+    .album {
+      width: 45vw;
+      height: 45vw;
+      overflow: hidden;
+      margin-bottom: 10px;
+      position: relative;
+      // 坑爹的浏览器(电脑手机与安卓浏览器显示不一致)
+      &:nth-last-of-type(1) {
+        margin-bottom: 70px;
+      }
+      .link {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        display: inline-block;
+        .video {
+          width: 32px;
+          height: 32px;
+        }
+      }
+      .cover {
+        width: 100%;
+        border-radius: 5px;
+      }
     }
   }
 }
