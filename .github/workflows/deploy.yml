@@ -31,7 +31,7 @@ jobs:
         # For any initial/required rsync flags
         ARGS:  "-rltgoDzvO --delete"
         # Source directory dist/ 需要到远端服务器的文件目录 **填入自己的打包路径**
-        SOURCE: "dist/"
+        SOURCE: "build/"
         # Remote host **填入自己的域名**
         REMOTE_HOST: "47.56.13.69"
         # Remote user **填入自己的用户,一般都是root用户**
