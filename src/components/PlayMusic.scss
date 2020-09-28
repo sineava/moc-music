@@ -14,15 +14,21 @@
     z-index: 101;
     position: absolute;
     animation: move 1s ease-in forwards;
+    height: 100%;
     .pack {
       display: none;
     }
     .unfold {
       display: block;
       background-color: #F8F9FD;
+      height: 100%;
+      overflow: hidden;
       .content {
         background: #F8F9FD;
-        height: calc(100vh - 64px);
+        height: calc(100% - 64px); 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
       }
     }
   }
@@ -46,6 +52,15 @@
         width: 60px;
         height: 60px;
         border-radius: 50%;
+      }
+      .info {
+        margin-left: 20px;
+        color: #F8F9FD;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 12px;
+        .singer {
+          font-size: 10px;
+        }
       }
     }
     .right-wrapper {

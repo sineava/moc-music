@@ -19,7 +19,7 @@ const Recommend = ({match}) => {
     if (res.status === 200) {
       const list = res.data.data.songlist
         .filter(song => song.albummid)
-        .map(song => [song.albummid, song.songmid,song.vid])
+        .map(song => [song.albummid, song.songmid,song.songname,song.singer[0].name])
       localStorage.setItem('songlist', JSON.stringify(list))
       // 发布
       PubSub.publish('play', {})

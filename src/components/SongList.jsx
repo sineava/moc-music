@@ -20,7 +20,7 @@ const SongList = ({ match }) => {
       if (res.status === 200) {
         const songs = res.data.data.songlist
           .filter(song => song.albummid)
-          .map(song => [song.albummid, song.songmid,song.vid])
+          .map(song => [song.albummid, song.songmid,song.vid,song.songname])
         const arr = songs.splice(0, 20)
         setSongList(arr)
         arrs = arr
@@ -51,8 +51,8 @@ const SongList = ({ match }) => {
     }
     loadingData()
   }, [match.params.id])
-  function loadMusic(albummid, songmid,vid) {
-    PubSub.publish('play', {albummid,songmid,vid})
+  function loadMusic(albummid, songmid,vid,songname) {
+    PubSub.publish('play', {albummid,songmid,vid,songname})
   }
   return (
     <div className="songlist wrapper" ref={wrapper}>
@@ -60,7 +60,7 @@ const SongList = ({ match }) => {
         {songList.length === 0
           ? <Spin size="large" />
           : songList.map((mid, index) => {
-            const [albummid, songmid, vid] = mid
+            const [albummid, songmid, vid, songname] = mid
             return (
               <li key={`songId-${index}`} className="album">
                 {
@@ -70,7 +70,7 @@ const SongList = ({ match }) => {
                     </Link>
                   )
                 }
-                <img className="cover" src={`https://y.gtimg.cn/music/photo_new/T002R300x300M000${albummid}.jpg`} alt="cover" onClick={() => { loadMusic(albummid,songmid,vid) }} />
+                <img className="cover" src={`https://y.gtimg.cn/music/photo_new/T002R300x300M000${albummid}.jpg`} alt="cover" onClick={() => { loadMusic(albummid,songmid,vid,songname) }} />
               </li>
             )
           })}

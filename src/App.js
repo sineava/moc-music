@@ -24,37 +24,45 @@ function App(props) {
   const { Header, Content } = Layout
   const [songurl,setSongurl] = useState('')
   const [albummid,setAlbummid] = useState('')
+  const [songname,setSongname] = useState('')
+  const [singer,setSinger] = useState('')
   const [list,setList] = useState(JSON.parse(localStorage.getItem('songlist')) || null)
   useEffect(() => {
     if (list) {
-      const [albummid,songmid] = list.shift()
+      const [albummid,songmid,songname,singer] = list.shift()
       axios.get(`/qq/song/urls?id=${songmid}`).then(res => {
         if (res.status === 200) {
           setSongurl(res.data.data[songmid])
           setAlbummid(albummid)
+          setSongname(songname)
+          setSinger(singer)
         }
       })
     }
+    // eslint-disable-next-line
   }, [])
   useEffect(() => {
     // 发布订阅
-    const token = PubSub.subscribe('play', (_, {albummid: album,songmid: song}) => {
+    const token = PubSub.subscribe('play', (_, {albummid: album,songmid: song,songname: name}) => {
       // 单击歌曲
       if (album && song) {
         axios.get(`/qq/song/urls?id=${song}`).then(res => {
           if (res.status === 200) {
             setSongurl(res.data.data[song])
             setAlbummid(album)
+            setSongname(name)
           }
         })
       } else {
         const newList = JSON.parse(localStorage.getItem('songlist'))
         setList(_ => {
-          const [albummid,songmid] = newList.shift()
+          const [albummid,songmid,songname,singername] = newList.shift()
           axios.get(`/qq/song/urls?id=${songmid}`).then(res => {
             if (res.status === 200) {
               setSongurl(res.data.data[songmid])
               setAlbummid(albummid)
+              setSongname(songname)
+              setSinger(singername)
             }
           })
           return [...newList]
@@ -67,11 +75,12 @@ function App(props) {
   },[list])
   const next = () => {
     localStorage.setItem('songlist', JSON.stringify(list))
-    const [albummid,songmid] = list.shift()
+    const [albummid,songmid,songname] = list.shift()
     axios.get(`/qq/song/urls?id=${songmid}`).then(res => {
       if (res.status === 200) {
         setSongurl(res.data.data[songmid])
         setAlbummid(albummid)
+        setSongname(songname)
       }
     })
   }
@@ -114,7 +123,7 @@ function App(props) {
         </Content>
       </Layout>
       {/* bottom play bar */}
-      { songurl && <PlayMusic songurl={songurl} albummid={albummid} next={next}/> }
+      { songurl && <PlayMusic songurl={songurl} albummid={albummid} next={next} songname={songname} singer={singer}/> }
     </div>
   )
 }

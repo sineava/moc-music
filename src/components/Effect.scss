@@ -4,7 +4,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  // margin-top: 20px;
   /* 背景部分 */
   .music-cover-background {
     position: absolute;
@@ -21,6 +21,8 @@
     .music-cover-image {
       width: 50vw;
       height: 50vw;
+      max-width: 260px;
+      max-height: 260px;
       border: none;
       border-radius: 50%;
       animation: rotate infinite linear 25s;

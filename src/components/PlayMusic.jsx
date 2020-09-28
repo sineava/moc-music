@@ -11,7 +11,7 @@ import Effect from './Effect'
 import MusicProgress from './MusicProgress'
 import MusicControl from './MusicControl'
 
-const PlayMusic = ({ songurl, albummid, next }) => {
+const PlayMusic = ({ songurl, albummid,songname,singer, next }) => {
   const player = useRef(null)
   const [status, setStatus] = useState(false)
   const [touch, setTouch] = useState(false)
@@ -69,6 +69,14 @@ const PlayMusic = ({ songurl, albummid, next }) => {
             albummid &&
             <img src={`https://y.gtimg.cn/music/photo_new/T002R300x300M000${albummid}.jpg`} alt="avatar" className="avatar" onClick={() => setTouch(true)} />
           }
+          <div className="info">
+            <div className="songname">
+              {songname}
+            </div>
+            <div className="singer">
+              {singer}
+            </div>
+          </div>
         </div>
         <div className="right-wrapper">
           {
