@@ -19,8 +19,5 @@ server {
 }
 ```
 
-### 项目页面
-> 私人项目所有没有做兼容,所以部分页面可能出现样式问题
-
 ### 后端api文档
 [api地址](https://jsososo.github.io/QQMusicApi/#/?id=start)
